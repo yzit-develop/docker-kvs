@@ -13,19 +13,6 @@ services:
     container_name: dockerkvs_selenium_hub
     ports:
       - 4444:4444
-  apptest:
-    build:
-      context: ./apptest
-      dockerfile: Dockerfile
-    image: dockerkvs_apptest
-    container_name: dockerkvs_apptest
-    depends_on:
-      - app
-    tty: true
-    environment:
-      APP_HOST: app
-      APP_PORT: 80
-      
   web: 
     build:
       context: ./web
